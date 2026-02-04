@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>CORAL - ZPM</title>
+</head>
+
+<body class="bg-[#F0F0DB] text-[#30364F]">
+    <header
+        class="fixed left-0 right-0 top-0 z-10 flex h-[70px] items-center justify-between border-b-4 border-[#ACBAC4] bg-[#30364F] px-6">
+        <a href="{% url 'home' %}" class="text-lg font-semibold tracking-[0.3em] text-[#F0F0DB] hover:text-[#ACBAC4] transition-colors">>ZPM</a>
+        <ul id="navId"
+            class="fixed right-0 top-[70px] hidden h-[calc(100vh-70px)] w-[min(320px,70vw)] flex-col items-center justify-center gap-6 bg-[#30364F] px-6 py-8 text-[#E1D9BC] md:static md:flex md:h-auto md:w-auto md:flex-row md:justify-end md:bg-transparent md:p-0">
+        </ul>
+        <button class="burger text-[#E1D9BC] md:hidden" type="button" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
+
+    <main class="pt-[70px]">
+        <section class="min-h-[100vh] px-6 py-24">
+            <div class="mx-auto max-w-5xl">
+                <a href="{% url 'home' %}#products" class="inline-flex items-center gap-2 text-[#E1D9BC] hover:text-[#ACBAC4] mb-8">
+                    <i class="fas fa-arrow-left"></i> Back to Products
+                </a>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-4" data-aos="fade-up">CORAL</h1>
+                        <div class="w-16 h-1 bg-[#ACBAC4] mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+                        <p class="text-lg leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="200">
+                            Decentralized SWARM model for building real things. CORAL enables autonomous construction and assembly through coordinated drone swarms.
+                        </p>
+                        <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                            Our decentralized architecture ensures fault tolerance and scalability, allowing swarms to adapt and continue operations even when individual units fail.
+                        </p>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&h=400&fit=crop" 
+                             alt="CORAL Drone System" 
+                             class="w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'js/navbar.js' %}?v=2"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+
+</html>

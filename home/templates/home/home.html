@@ -1,0 +1,177 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>ZPM</title>
+    <style>
+        /* Custom AOS animation - line grows from left */
+        [data-aos="grow-right"] {
+            transform: scaleX(0);
+            transform-origin: center;
+        }
+        [data-aos="grow-right"].aos-animate {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F0F0DB] text-[#30364F]">
+    <header
+        class="fixed left-0 right-0 top-0 z-10 flex h-[70px] items-center justify-between border-b-4 border-[#ACBAC4] bg-[#30364F] px-6">
+        <h1 class="text-lg font-semibold tracking-[0.3em] text-[#F0F0DB]">>ZPM</h1>
+
+        <ul id="navId"
+            class="fixed right-0 top-[70px] hidden h-[calc(100vh-70px)] w-[min(320px,70vw)] flex-col items-center justify-center gap-6 bg-[#30364F] px-6 py-8 text-[#E1D9BC] md:static md:flex md:h-auto md:w-auto md:flex-row md:justify-end md:bg-transparent md:p-0">
+        </ul>
+        <button class="burger text-[#E1D9BC] md:hidden" type="button" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
+
+    <section id="home" class="relative flex min-h-[100vh] items-center justify-center
+    bg-[radial-gradient(circle_at_top_left,rgba(240,240,219,0.35),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(48,54,79,0.15),transparent_55%),url('{% static "images/IMG_2108.jpg" %}')]
+    bg-cover bg-center bg-fixed px-6 py-24 text-[#F0F0DB]">
+    <div class="absolute inset-0 backdrop-blur-sm"></div>
+    <div class="relative mx-auto flex w-full max-w-5xl flex-col gap-4">
+        <p class="text-xs font-bold uppercase tracking-[0.4em]">ZPM Robotics</p>
+        <h2 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">The future of drones are here.</h2>
+        <p class="max-w-3xl text-base leading-relaxed sm:text-lg">
+            ZPM Robotics brings the future of autonomous drone systems to life.
+        </p>
+    </div>
+    </section>
+
+    
+
+        <section id="about"
+            class="min-h-[100vh] bg-[#F0F0DB] bg-fixed bg-[radial-gradient(circle_at_top_left,rgba(172,186,196,0.25),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(48,54,79,0.15),transparent_55%)] px-6 py-24 text-[#30364F]">
+            <div class="mx-auto w-full max-w-6xl">
+                <div class="grid gap-10 lg:grid-cols-2 mt-16 lg:items-center lg:gap-x-16">
+                    <div class="flex flex-col justify-center gap-4 lg:pr-6">
+                        <h2 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">About ZPM</h2>
+                        <p class="max-w-2xl text-base leading-relaxed sm:text-lg">
+                            ZPM Robotics explores autonomous, decentralized swarm systems for next-generation drones.
+                            Each drone operates as an independent node, communicating peer-to-peer to coordinate decisions and allocate tasks dynamically during a mission.
+                        </p>
+                        <p class="max-w-2xl text-base leading-relaxed sm:text-lg">
+                            By adapting to local context and available resources, the swarm remains resilient, scalable, and responsive even in uncertain or contested environments.
+                        </p>
+                    </div>
+                    <div class="grid gap-8">
+                        <div
+                            class="flex h-full flex-col justify-between gap-2 rounded-2xl border border-[#E1D9BC] bg-[#ACBAC4] p-6 text-[#30364F] shadow-lg shadow-[#30364F]/10 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+                            <h3 class="text-2xl text-center font-semibold">ZPMs Interests</h3>
+                            <div class="w-15 h-0.5 bg-[#30364F] mt-0" data-aos="grow-right" data-aos-duration="800"></div>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Decentralized Systems</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Peer-to-Peer Communication</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Node Autonomy</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Swarm Resilience</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Adaptive Behavior</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Distributed Intelligence</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Fault Tolerance</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Real-time Decisions</p>
+                            <p class="text-sm leading-relaxed text-center sm:text-base"> - Scalable Systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how"
+            class="flex min-h-[100vh] items-center justify-center bg-[#ACBAC4] bg-fixed bg-[radial-gradient(circle_at_top_left,rgba(240,240,219,0.35),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(48,54,79,0.15),transparent_55%)] px-6 py-24 text-[#30364F]">
+            <div class="mx-auto flex w-full max-w-5xl flex-col gap-6">
+                <h2 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">How?</h2>
+                <div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
+                    <div class="mb-6 break-inside-avoid rounded-2xl border border-[#30364F] bg-[#F0F0DB] p-6 shadow-lg shadow-[#30364F]/10">
+                        <h3 class="text-lg font-semibold">Peer-to-Peer Communication</h3>
+                        <p class="text-sm leading-relaxed text-[#30364F]/80">ZPM nodes communicate directly over ROS2 using DDS discovery. Each ROS2 node can publish and subscribe to eachothers topics. Allowing pure decentralized communication.</p>
+                        <p class="text-sm leading-relaxed text-[#30364F]/80">With this, each node can have all the information of the other nodes in the swarm. This allows for desicion making to happen independently.</p>
+                    </div>
+                    <div class="mb-6 break-inside-avoid rounded-2xl border border-[#30364F] bg-[#F0F0DB] p-6 shadow-lg shadow-[#30364F]/10">
+                        <h3 class="text-lg font-semibold">Fault Tolerance</h3>
+                        <p class="text-sm leading-relaxed text-[#30364F]/80">With the concept of DDS discovery, if a node fails during a mission, there is no harm to the overall mission. The swarm can continue to operate without the failed node.</p>
+                    </div>
+                    <div class="mb-6 break-inside-avoid rounded-2xl border border-[#30364F] bg-[#F0F0DB] p-6 shadow-lg shadow-[#30364F]/10">
+                        <h3 class="text-lg font-semibold">Desicion Making / AI</h3>
+                            <p class="text-sm leading-relaxed text-[#30364F]/80">   Each node is designed to make desicions independently, and be versatile.</p>
+                            <p class="text-sm leading-relaxed text-[#30364F]/80">   This means that each node in the swarm can be used for a different purpose, while still being all in one.</p>
+                            <p class="text-sm leading-relaxed text-[#30364F]/80">   Each node is equipped with the proper hardware to make these desicions, and then the data is used by ROS2 software in order to make desicions independently, ZPM nodes leverage CV models, and pathfinding algorithms to make desicions.</p>
+                    </div>
+                    <div class="mb-6 break-inside-avoid rounded-2xl border border-[#30364F] bg-[#F0F0DB] p-6 shadow-lg shadow-[#30364F]/10">
+                        <h3 class="text-lg font-semibold">Scalability</h3>
+                            <p class="text-sm leading-relaxed text-[#30364F]/80">ZPM systems are designed with scalability in mind. We've already established that losing a single node in a swarm will not affect the mission, this means that adding a node to the swarm will only increase the capabilities of the swarm.</p>
+                    </div>
+                    <div class="mb-6 break-inside-avoid rounded-2xl border border-[#30364F] bg-[#F0F0DB] p-6 shadow-lg shadow-[#30364F]/10">
+                        <h3 class="text-lg font-semibold">ZPM Node</h3>
+                        <model-viewer
+                            src="{% static 'js/robot3d.glb' %}"
+                            alt="3D robot model"
+                            class="mt-3 h-64 w-full rounded-xl border border-[#30364F] bg-[#F0F0DB]"
+                            camera-controls
+                            touch-action="pan-y"
+                            interaction-prompt="auto">
+                        </model-viewer>
+                        <p class="mt-2 text-xs leading-relaxed text-[#30364F]/70">Drag to rotate, scroll to zoom.</p>
+                    </div>
+                    <div class="mb-6 break-inside-avoid rounded-2xl border border-[#30364F] bg-[#F0F0DB] p-6 shadow-lg shadow-[#30364F]/10">
+                        <h3 class="text-lg font-semibold">Technologies Used</h3>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="rounded-full border border-[#30364F] bg-[#ACBAC4]/30 px-3 py-1 text-xs font-semibold text-[#30364F]">ROS2</span>
+                        <span class="rounded-full border border-[#30364F] bg-[#ACBAC4]/30 px-3 py-1 text-xs font-semibold text-[#30364F]">FlaskAPI</span>
+                        <span class="rounded-full border border-[#30364F] bg-[#ACBAC4]/30 px-3 py-1 text-xs font-semibold text-[#30364F]">C++</span>
+                        <span class="rounded-full border border-[#30364F] bg-[#ACBAC4]/30 px-3 py-1 text-xs font-semibold text-[#30364F]">Raspberry Pi</span>
+                        <span class="rounded-full border border-[#30364F] bg-[#ACBAC4]/30 px-3 py-1 text-xs font-semibold text-[#30364F]">PyTorch</span>
+                        <span class="rounded-full border border-[#30364F] bg-[#ACBAC4]/30 px-3 py-1 text-xs font-semibold text-[#30364F]">CV</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products"
+            class="flex min-h-[100vh] items-center justify-center bg-[#F0F0DB] bg-fixed bg-[radial-gradient(circle_at_top_left,rgba(172,186,196,0.25),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(48,54,79,0.15),transparent_55%)] px-6 py-24 text-[#30364F]">
+            <div class="mx-auto flex w-full max-w-5xl flex-col gap-2">
+                <h2 class="text-3xl text-center font-semibold sm:text-4xl lg:text-5xl">Products</h2>
+                <div class="grid gap-8 md:grid-cols-3">
+                    <a href="{% url 'tuna' %}" class="group flex flex-col h-80 rounded-xl border border-[#30364F] bg-[#F0F0DB] overflow-hidden shadow-lg shadow-[#30364F]/10 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=200&fit=crop" alt="TUNA" class="w-full h-full object-cover">
+                        <div class="flex flex-col flex-1 p-5">
+                            <h3 class="text-lg font-semibold group-hover:text-[#ACBAC4] transition-colors">TUNA</h3>
+                            <p class="text-sm mt-1 leading-relaxed">SWARM model for optimal pathing during fire scenarios</p>
+                        </div>
+                    </a>
+                    <a href="{% url 'coral' %}" class="group flex flex-col h-80 rounded-xl border border-[#30364F] bg-[#F0F0DB] overflow-hidden shadow-lg shadow-[#30364F]/10 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=400&h=200&fit=crop" alt="CORAL" class="w-full h-full object-cover">
+                            <div class="flex flex-col flex-1 p-5">
+                                <h3 class="text-lg font-semibold group-hover:text-[#ACBAC4] transition-colors">CORAL</h3>
+                                <p class="text-sm mt-1 leading-relaxed">Decentralized SWARM model for building real things</p>
+                            </div>
+                    </a>
+                    <a href="{% url 'tbd' %}" class="group flex flex-col h-80 rounded-xl border border-[#30364F] bg-[#F0F0DB] overflow-hidden shadow-lg shadow-[#30364F]/10 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <div class="w-full h-full bg-gradient-to-br from-[#30364F] to-[#ACBAC4] flex items-center justify-center">
+                            <i class="fas fa-rocket text-4xl text-[#F0F0DB]"></i>
+                        </div>
+                        <div class="flex flex-col flex-1 p-5">
+                            <h3 class="text-lg font-semibold group-hover:text-[#ACBAC4] transition-colors">TBD</h3>
+                            <p class="text-sm mt-1 leading-relaxed">Coming soon</p>
+                            <p class="text-sm mt-1 leading-relaxed">03/28/2026</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'js/navbar.js' %}?v=2"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ mirror: true });</script>
+</body>
+
+</html>

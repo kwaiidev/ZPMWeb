@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>TUNA - ZPM</title>
+</head>
+
+<body class="bg-[#F0F0DB] text-[#30364F]">
+    <header
+        class="fixed left-0 right-0 top-0 z-10 flex h-[70px] items-center justify-between border-b-4 border-[#ACBAC4] bg-[#30364F] px-6">
+        <a href="{% url 'home' %}" class="text-lg font-semibold tracking-[0.3em] text-[#F0F0DB] hover:text-[#ACBAC4] transition-colors">>ZPM</a>
+
+        <ul id="navId"
+            class="fixed right-0 top-[70px] hidden h-[calc(100vh-70px)] w-[min(320px,70vw)] flex-col items-center justify-center gap-6 bg-[#30364F] px-6 py-8 text-[#E1D9BC] md:static md:flex md:h-auto md:w-auto md:flex-row md:justify-end md:bg-transparent md:p-0">
+        </ul>
+        <button class="burger text-[#E1D9BC] md:hidden" type="button" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
+
+    <script src="{% static 'js/navbar.js' %}?v=2"></script>
+</body>
+
+</html>
