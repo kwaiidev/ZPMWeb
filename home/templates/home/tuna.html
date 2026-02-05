@@ -24,7 +24,85 @@
         </button>
     </header>
 
+    <main class="pt-[70px]">
+        <section id="about-tuna" class="px-6 py-16">
+            <div class="mx-auto max-w-6xl">
+                <div class="mb-8">
+                    <p class="text-sm uppercase tracking-[0.3em] text-[#ACBAC4]">ZPM</p>
+                    <h1 class="text-4xl font-semibold text-[#30364F]">TUNA</h1>
+                    <div class="mt-2 h-1 w-[100px] bg-[#ACBAC4]"></div>
+                </div>
+                <div class="grid gap-8 md:grid-cols-2">
+                    <div class="text-sm leading-relaxed text-[#30364F]/80">
+                        <p>
+                            Tunas by nature are obligate ram ventilators. They must move fast in order to survive. Tuna are schooling fish, they use their lateral line, a sensory organ that detects movement in water, to react to each others movement. ZPM-TUNA gets its name from this same ideology, ZPM nodes are designed to react fast, and be versatile when it comes to life or death scenarios.
+                        </p>
+                        <p class="mt-4">
+                            Decentralized, peer-to-peer communication allows tuna nodes to react to each others movement, and make desicions based on what others sense. This allows for the swarm to create dynamic escape paths, help users avoid obstacles, and find potentially endangered people.
+                        </p>
+                    </div>
+                    <div class="text-sm leading-relaxed text-[#30364F]/80">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+                            <source src="{% static 'images/videoplayback.mp4' %}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tuna-display"
+            class="bg-[#ACBAC4] bg-fixed bg-[radial-gradient(circle_at_top_left,rgba(240,240,219,0.35),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(48,54,79,0.15),transparent_55%)] px-6 py-16 text-[#30364F]">
+            <div class="mx-auto max-w-6xl">
+                <div
+                    id="system-status"
+                    class="mt-4 w-full max-w-md rounded-xl border border-[#E1D9BC] bg-[#F0F0DB]/80 p-5 backdrop-blur shadow-lg shadow-[#30364F]/10">
+                    <p class="text-xs font-bold uppercase tracking-widest text-[#ACBAC4]">
+                        System Status
+                    </p>
+
+                    <div class="mt-2 flex items-center gap-3">
+                        <span id="status-dot" class="h-3 w-3 rounded-full bg-gray-400"></span>
+                        <span id="swarm-state" class="text-lg font-semibold text-[#30364F]">—</span>
+                    </div>
+
+                    <p class="mt-2 text-sm text-[#30364F]">
+                        Active Nodes:
+                        <span id="active-nodes" class="font-semibold">—</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
     <script src="{% static 'js/navbar.js' %}?v=2"></script>
+    <script>
+        async function loadSystemStatus() {
+            try {
+                const res = await fetch("/api/status/");
+                const data = await res.json();
+
+                document.getElementById("swarm-state").textContent = data.swarm_state;
+                document.getElementById("active-nodes").textContent = data.active_nodes;
+
+                const dot = document.getElementById("status-dot");
+
+                if (data.swarm_state === "OPERATIONAL") {
+                    dot.className = "h-3 w-3 rounded-full bg-green-500";
+                } else if (data.swarm_state === "DEGRADED") {
+                    dot.className = "h-3 w-3 rounded-full bg-yellow-500";
+                } else {
+                    dot.className = "h-3 w-3 rounded-full bg-red-500";
+                }
+            } catch (err) {
+                console.error("Failed to load system status", err);
+            }
+        }
+
+        loadSystemStatus();
+        setInterval(loadSystemStatus, 5000);
+    </script>
 </body>
 
 </html>
